@@ -38,7 +38,7 @@ async function logout() {
     window.location.reload();
 }
 
-window.showAuth = function (mode) {
+function showAuth(mode) {
     authMode = mode;
     document.getElementById('auth-modal').style.display = 'flex';
     document.getElementById('modal-title').textContent = mode === 'signup' ? 'Create Account' : 'Welcome Back';
@@ -46,13 +46,17 @@ window.showAuth = function (mode) {
     document.getElementById('toggle-link').textContent = mode === 'signup' ? 'Already have an account? Login' : "Don't have an account? Sign Up";
 }
 
-window.hideAuth = function () {
+function hideAuth() {
     document.getElementById('auth-modal').style.display = 'none';
 }
 
-window.toggleAuthMode = function () {
-    window.showAuth(authMode === 'signup' ? 'login' : 'signup');
+function toggleAuthMode() {
+    showAuth(authMode === 'signup' ? 'login' : 'signup');
 }
+
+window.showAuth = showAuth;
+window.hideAuth = hideAuth;
+window.toggleAuthMode = toggleAuthMode;
 
 const authForm = document.getElementById('auth-form');
 if (authForm) {
