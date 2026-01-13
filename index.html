@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InterviewAssistant | 100% Invisible AI Coding Interview Copilot</title>
+    <meta name="description"
+        content="Master your technical interviews with InterviewAssistant, the 100% invisible AI coding copilot that remains undetectable during screensharing.">
+    <link rel="icon" type="image/png" href="interviewassistantlogo.png">
+    <link rel="stylesheet" href="style.css">
+    <!-- Supabase JS Library -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+
+<body>
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                <img src="image-removebg-preview.png" alt="InterviewAssistant Logo"
+                    style="height: 36px; width: auto; filter: brightness(0) invert(1); margin-left: -5px;">
+            </div>
+            <nav class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#faq">FAQ</a>
+                <div id="auth-nav">
+                    <a href="#" onclick="showAuth('login')">Login</a>
+                    <a href="#" class="btn btn-primary" onclick="showAuth('signup')">Sign Up</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-badge">
+                <span>NEW</span> Version 1.0.0 has officially launched
+            </div>
+            <h1>100% Invisible AI Coding<br>Interview Assistant</h1>
+            <p>Why Leetcode when you can InterviewAssistant. Master your technical interviews with undetectable AI
+                assistance.
+            </p>
+
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; margin-bottom: 3rem;">
+
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <span style="font-size: 0.9rem; color: var(--text-muted); font-weight: 500;">Loved by 1000+ Software
+                        Engineers</span>
+                </div>
+            </div>
+
+            <div class="hero-actions">
+                <a href="#" class="btn btn-primary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M18.71 19.5c-.83 1.24-1.71 2.45-3.1 2.48-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .76-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.24-1.99 1.1-3.15-1.07.04-2.32.71-3.1 1.61-.7.81-1.31 2.03-1.14 3.17 1.19.09 2.34-.72 3.14-1.63z" />
+                    </svg>
+                    Download on Mac
+                </a>
+                <a href="#" class="btn btn-outline">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M0 3.449L9.75 2.1V11.7H0V3.449zM0 12.3h9.75v9.6L0 20.551V12.3zM10.712 1.913L24 0v11.7h-13.288V1.913zM10.712 12.3H24v11.7l-13.288-1.913V12.3z" />
+                    </svg>
+                    Download on Windows
+                </a>
+            </div>
+        </section>
+
+        <!-- Visual Proof -->
+        <section class="visual-proof">
+            <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2.5rem;">Unbeatable Invisibility</h2>
+            <div class="proof-container">
+                <div class="proof-item">
+                    <span class="proof-label">SCREENSHARE PROOF (Your View)</span>
+                    <img src="/Users/akashagrawal/.gemini/antigravity/brain/e14c0d08-4df3-4632-8299-201c1b0845d8/screenshare_proof_feature_1768121967264.png"
+                        alt="You screen" class="proof-img">
+                    <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-muted);">You see the AI, perfectly
+                        overlaid.</p>
+                </div>
+                <div class="proof-item">
+                    <span class="proof-label">SCREENSHOT PROOF (Interviewer View)</span>
+                    <img src="/Users/akashagrawal/.gemini/antigravity/brain/e14c0d08-4df3-4632-8299-201c1b0845d8/screenshare_proof_feature_1768121967264.png"
+                        alt="Interviewer screen" class="proof-img" style="filter: brightness(1.2) contrast(1.1);">
+                    <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-muted);">They see nothing but your
+                        clean screen.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Demo Query Field -->
+        <section style=" text-align: center;">
+            <div
+                style="max-width: 600px; margin: 0 auto; background: var(--card-bg); padding: 2rem; border-radius: 1.5rem; border: 1px solid var(--border);">
+                <span class="feature-tag">Try the Interface</span>
+                <h3 style="margin-bottom: 1rem;">Ask Your Question</h3>
+                <textarea id="demo-query"
+                    placeholder="Type what you want with the screenshot... (e.g. 'Solve this Leetcode hard')"
+                    style="width: 100%; height: 120px; background: rgba(0,0,0,0.3); border: 1px solid var(--border); border-radius: 1rem; padding: 1rem; color: white; resize: none; font-size: 1rem; margin-bottom: 1rem;"></textarea>
+                <button class="btn btn-primary" style="width: 100%;">Analyze Screen</button>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section id="features" class="features">
+            <div class="feature-row">
+                <div class="feature-content">
+                    <span class="feature-tag">Privacy First</span>
+                    <h2>Screenshare-Proof</h2>
+                    <p>Our app remains 100% invisible during screensharing. Whether you are using Zoom, Microsoft Teams,
+                        or Google Meet, the interviewer only sees your clean code.</p>
+                </div>
+                <div class="feature-image">
+                    <img src="/Users/akashagrawal/.gemini/antigravity/brain/e14c0d08-4df3-4632-8299-201c1b0845d8/screenshare_proof_feature_1768121967264.png"
+                        alt="Screenshare Proof">
+                </div>
+            </div>
+
+            <div class="feature-row">
+                <div class="feature-content">
+                    <span class="feature-tag">Seamless Control</span>
+                    <h2>Undetectable Hotkeys</h2>
+                    <p>Use global hotkeys to interact with our app without switching tabs or moving your mouse. Trigger
+                        analysis and get hints instantly and silently.</p>
+                </div>
+                <div class="feature-image">
+                    <img src="/Users/akashagrawal/.gemini/antigravity/brain/e14c0d08-4df3-4632-8299-201c1b0845d8/undetectable_hotkeys_feature_1768121982042.png"
+                        alt="Undetectable Hotkeys">
+                </div>
+            </div>
+
+            <div class="feature-row">
+                <div class="feature-content">
+                    <span class="feature-tag">Clear Logic</span>
+                    <h2>Structured Output</h2>
+                    <p>Receive clear, structured responses with interactive follow-ups. Get the logic behind the code so
+                        you can explain it naturally to your interviewer.</p>
+                </div>
+                <div class="feature-image">
+                    <img src="/Users/akashagrawal/.gemini/antigravity/brain/e14c0d08-4df3-4632-8299-201c1b0845d8/structured_output_feature_1768121997370.png"
+                        alt="Structured Output">
+                </div>
+            </div>
+        </section>
+
+        <!-- Platform Compatibility -->
+        <section class="platforms">
+            <h2 style="font-size: 2.5rem; margin-bottom: 2rem;">Works Across All Platforms</h2>
+            <div class="platform-grid">
+                <div class="platform-card">
+                    <img src="https://www.google.com/s2/favicons?domain=hackerrank.com&sz=128" alt="HackerRank"
+                        style="height: 24px;">
+                    HackerRank
+                </div>
+                <div class="platform-card">
+                    <img src="https://www.google.com/s2/favicons?domain=coderpad.io&sz=128" alt="CoderPad"
+                        style="height: 24px;">
+                    CoderPad
+                </div>
+                <div class="platform-card">
+                    <img src="https://www.google.com/s2/favicons?domain=codesignal.com&sz=128" alt="CodeSignal"
+                        style="height: 24px;">
+                    CodeSignal
+                </div>
+                <div class="platform-card">
+                    <img src="https://www.google.com/s2/favicons?domain=zoom.us&sz=128" alt="Zoom"
+                        style="height: 24px;">
+                    Zoom
+                </div>
+                <div class="platform-card">
+                    <img src="https://www.google.com/s2/favicons?domain=teams.microsoft.com&sz=128"
+                        alt="Microsoft Teams" style="height: 24px;">
+                    Microsoft Teams
+                </div>
+                <div class="platform-card">
+                    <img src="https://www.google.com/s2/favicons?domain=meet.google.com&sz=128" alt="Google Meet"
+                        style="height: 24px;">
+                    Google Meet
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing -->
+        <section id="pricing" class="pricing-section">
+            <h2 style="font-size: 3rem; margin-bottom: 1rem;">Choose Your Plan</h2>
+            <p style="color: var(--text-muted); margin-bottom: 2rem;">Get the edge you need for your career.</p>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Free</h3>
+                    <div style="font-size: 2.5rem; font-weight: 800; margin: 1.5rem 0;">$0</div>
+                    <ul style="list-style: none; color: var(--text-muted); margin-bottom: 2.5rem;">
+                        <li style="margin-bottom: 0.75rem;">✓ 5 Screenshots included</li>
+                        <li style="margin-bottom: 0.75rem;">✓ Standard AI Analysis</li>
+                        <li style="margin-bottom: 0.75rem;">✓ Stealth Mode enabled</li>
+                    </ul>
+                    <button class="btn btn-outline" style="width: 100%;" onclick="showAuth('signup')">Get
+                        Started</button>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>Basic</h3>
+                    <div style="font-size: 2.5rem; font-weight: 800; margin: 1.5rem 0;">$5<span
+                            style="font-size: 1rem; color: var(--text-muted);">/mo</span></div>
+                    <ul style="list-style: none; color: var(--text-muted); margin-bottom: 2.5rem;">
+                        <li style="margin-bottom: 0.75rem;">✓ 25 Screenshots /month</li>
+                        <li style="margin-bottom: 0.75rem;">✓ Advanced Context Mode</li>
+                        <li style="margin-bottom: 0.75rem;">✓ Priority Processing</li>
+                    </ul>
+                    <button class="btn btn-primary" style="width: 100%;" onclick="handlePurchase('basic')">Get
+                        Basic</button>
+                </div>
+
+                <div class="pricing-card popular">
+                    <div class="popular-badge">POPULAR</div>
+                    <h3>Pro</h3>
+                    <div style="font-size: 2.5rem; font-weight: 800; margin: 1.5rem 0;">$10<span
+                            style="font-size: 1rem; color: var(--text-muted);">/mo</span></div>
+                    <ul style="list-style: none; color: var(--text-muted); margin-bottom: 2.5rem;">
+                        <li style="margin-bottom: 0.75rem;">✓ 60 Screenshots /month</li>
+                        <li style="margin-bottom: 0.75rem;">✓ Priority Support</li>
+                        <li style="margin-bottom: 0.75rem;">✓ Full Logic Breakdown</li>
+                    </ul>
+                    <button class="btn btn-primary" style="width: 100%;" onclick="handlePurchase('pro')">Get
+                        Pro</button>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>Premium</h3>
+                    <div style="font-size: 2.5rem; font-weight: 800; margin: 1.5rem 0;">$20<span
+                            style="font-size: 1rem; color: var(--text-muted);">/mo</span></div>
+                    <ul style="list-style: none; color: var(--text-muted); margin-bottom: 2.5rem;">
+                        <li style="margin-bottom: 0.75rem;">✓ 150 Screenshots /month</li>
+                        <li style="margin-bottom: 0.75rem;">✓ 24/7 Concierge Support</li>
+                        <li style="margin-bottom: 0.75rem;">✓ Multiple Device Sync</li>
+                    </ul>
+                    <button class="btn btn-primary" style="width: 100%;" onclick="handlePurchase('premium')">Get
+                        Premium</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="faq">
+            <h2 style="text-align: center; margin-bottom: 2rem; font-size: 2.5rem;">Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <h4>Is it really invisible?</h4>
+                    <p style="color: var(--text-muted);">Yes. Our technology hooks into the operating system at a lower
+                        level than standard screensharing APIs, ensuring our window is ignored during capture.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Will I get banned from HackerRank?</h4>
+                    <p style="color: var(--text-muted);">We do not inject any code into the browser or the website. Our
+                        app runs as a separate stealth layer, making it undetectable by browser-based monitoring.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Can I use it on Windows?</h4>
+                    <p style="color: var(--text-muted);">Yes, we support both macOS and Windows with native stealth
+                        implementations.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo-side">
+                    <div class="logo">
+                        <img src="image-removebg-preview.png" alt="InterviewAssistant Logo"
+                            style="height: 48px; width: auto; filter: brightness(0) invert(1); margin-left: -8px;">
+                    </div>
+                    <p style="margin-left: 26px;">The ultimative stealth assistant for modern developers.</p>
+                </div>
+                <div class="footer-links-grid">
+                    <div class="footer-column">
+                        <h4>Product</h4>
+                        <a href="#features">Features</a>
+                        <a href="#pricing">Pricing</a>
+                        <a href="#">Download</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <a href="#">About</a>
+                        <a href="terms.html">Terms</a>
+                        <a href="#">Privacy</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Support</h4>
+                        <a href="#faq">FAQ</a>
+                        <a href="mailto:info@interviewassistant.co.in">Help Center</a>
+                        <a href="mailto:info@interviewassistant.co.in">Contact</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 InterviewAssistant Inc. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Auth Modal -->
+    <div id="auth-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="hideAuth()">&times;</span>
+            <h2 id="modal-title">Create Account</h2>
+            <form id="auth-form">
+                <input type="email" id="email" placeholder="Email Address" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit" id="submit-btn" class="btn btn-primary">Sign Up</button>
+                <p id="toggle-link" onclick="toggleAuthMode()">Already have an account? Login</p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Use the Supabase keys you provided
+        const SUPABASE_URL = "https://tgwgzakrykdewqgstnok.supabase.co";
+        const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRnd2d6YWtyeWtkZXdxZ3N0bm9rIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjgwNjgxNTEsImV4cCI6MjA4MzY0NDE1MX0.U5YAGaBXS4kMMhyv3FpK27sjjEi1vgMLMmh5MgEQwn0";
+
+        const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+        let authMode = 'signup';
+
+        async function checkSession() {
+            const { data: { session } } = await _supabase.auth.getSession();
+            if (session) {
+                handleAuthSuccess(session.user);
+            }
+        }
+        checkSession();
+
+        _supabase.auth.onAuthStateChange((event, session) => {
+            if (event === 'SIGNED_IN' || event === 'USER_UPDATED') {
+                if (session) handleAuthSuccess(session.user);
+            }
+        });
+
+        function handleAuthSuccess(user) {
+            document.getElementById('auth-nav').innerHTML = `
+                <span style="color: var(--text-muted); font-size: 0.8rem; margin-right: 1rem;">${user.email}</span>
+                <a href="#" class="btn btn-outline" onclick="logout()">Logout</a>
+            `;
+            hideAuth();
+        }
+
+        async function logout() {
+            await _supabase.auth.signOut();
+            window.location.reload();
+        }
+
+        function showAuth(mode) {
+            authMode = mode;
+            document.getElementById('auth-modal').style.display = 'flex';
+            document.getElementById('modal-title').textContent = mode === 'signup' ? 'Create Account' : 'Welcome Back';
+            document.getElementById('submit-btn').textContent = mode === 'signup' ? 'Create Account' : 'Login';
+            document.getElementById('toggle-link').textContent = mode === 'signup' ? 'Already have an account? Login' : "Don't have an account? Sign Up";
+        }
+
+        function hideAuth() {
+            document.getElementById('auth-modal').style.display = 'none';
+        }
+
+        function toggleAuthMode() {
+            showAuth(authMode === 'signup' ? 'login' : 'signup');
+        }
+
+        document.getElementById('auth-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const btn = document.getElementById('submit-btn');
+
+            btn.textContent = 'Processing...';
+            btn.disabled = true;
+
+            try {
+                let result;
+                if (authMode === 'signup') {
+                    result = await _supabase.auth.signUp({ email, password });
+                } else {
+                    result = await _supabase.auth.signInWithPassword({ email, password });
+                }
+
+                if (result.error) throw result.error;
+
+                if (authMode === 'signup') {
+                    alert('Success! Please check your email for verification.');
+                } else {
+                    alert('Logged in! You can now use the software.');
+                }
+                hideAuth();
+            } catch (err) {
+                alert(err.message);
+            } finally {
+                btn.textContent = authMode === 'signup' ? 'Create Account' : 'Login';
+                btn.disabled = false;
+            }
+        });
+
+        async function handlePurchase(plan) {
+            alert('Stripe Integration: Redirecting to Checkout...');
+        }
+    </script>
+</body>
+
+</html>
