@@ -18,7 +18,7 @@
                 <img src="image-removebg-preview.png" alt="InterviewAssistant Logo"
                     style="height: 36px; width: auto; filter: brightness(0) invert(1); margin-left: -5px;">
             </div>
-            <nav class="nav-links">
+            <nav class="nav-links" id="nav-menu">
                 <a href="#features">Features</a>
                 <a href="#pricing">Pricing</a>
                 <a href="#faq">FAQ</a>
@@ -27,6 +27,11 @@
                     <a href="#" class="btn btn-primary" onclick="showAuth('signup')">Sign Up</a>
                 </div>
             </nav>
+            <button class="mobile-menu-toggle" id="mobile-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </header>
 
@@ -69,7 +74,7 @@
 
         <!-- Visual Proof -->
         <section class="visual-proof">
-            <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2.5rem;">Unbeatable Invisibility</h2>
+            <h2 class="section-title">Unbeatable Invisibility</h2>
             <div class="proof-container">
                 <div class="proof-item">
                     <span class="proof-label">SCREENSHARE PROOF (Your View)</span>
@@ -141,7 +146,7 @@
 
         <!-- Platform Compatibility -->
         <section class="platforms">
-            <h2 style="font-size: 2.5rem; margin-bottom: 2rem;">Works Across All Platforms</h2>
+            <h2 class="section-title">Works Across All Platforms</h2>
             <div class="platform-grid">
                 <div class="platform-card">
                     <img src="https://www.google.com/s2/favicons?domain=hackerrank.com&sz=128" alt="HackerRank"
@@ -178,7 +183,7 @@
 
         <!-- Pricing -->
         <section id="pricing" class="pricing-section">
-            <h2 style="font-size: 3rem; margin-bottom: 1rem;">Choose Your Plan</h2>
+            <h2 class="section-title">Choose Your Plan</h2>
             <p style="color: var(--text-muted); margin-bottom: 2rem;">Get the edge you need for your career.</p>
             <div class="pricing-grid">
                 <div class="pricing-card">
@@ -237,7 +242,7 @@
 
         <!-- FAQ -->
         <section id="faq" class="faq">
-            <h2 style="text-align: center; margin-bottom: 2rem; font-size: 2.5rem;">Frequently Asked Questions</h2>
+            <h2 class="section-title">Frequently Asked Questions</h2>
             <div class="faq-container">
                 <div class="faq-item">
                     <h4>Is it really invisible?</h4>

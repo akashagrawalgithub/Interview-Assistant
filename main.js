@@ -3,6 +3,10 @@ import { createClient } from '@supabase/supabase-js'
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
 const SUPABASE_KEY = import.meta.env.VITE_SUPABASE_KEY;
 
+if (!SUPABASE_URL) {
+    console.error("Supabase URL is missing! Check your .env file or environment variables.");
+}
+
 const _supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
 let authMode = 'signup';
@@ -96,4 +100,25 @@ if (authForm) {
 
 window.handlePurchase = async function (plan) {
     alert('Stripe Integration: Redirecting to Checkout...');
+}
+
+// Mobile Menu Toggle
+const mobileToggle = document.getElementById('mobile-toggle');
+const navMenu = document.getElementById('nav-menu');
+
+if (mobileToggle && navMenu) {
+    mobileToggle.addEventListener('click', () => {
+        mobileToggle.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+    });
+
+    // Close menu when clicking a link
+    navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
 }
