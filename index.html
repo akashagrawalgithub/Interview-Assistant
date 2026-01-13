@@ -9,8 +9,6 @@
         content="Master your technical interviews with InterviewAssistant, the 100% invisible AI coding copilot that remains undetectable during screensharing.">
     <link rel="icon" type="image/png" href="interviewassistantlogo.png">
     <link rel="stylesheet" href="style.css">
-    <!-- Supabase JS Library -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 
 <body>
@@ -311,95 +309,7 @@
         </div>
     </div>
 
-    <script>
-        // Use the Supabase keys you provided
-        const SUPABASE_URL = "https://tgwgzakrykdewqgstnok.supabase.co";
-        const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRnd2d6YWtyeWtkZXdxZ3N0bm9rIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjgwNjgxNTEsImV4cCI6MjA4MzY0NDE1MX0.U5YAGaBXS4kMMhyv3FpK27sjjEi1vgMLMmh5MgEQwn0";
-
-        const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-
-        let authMode = 'signup';
-
-        async function checkSession() {
-            const { data: { session } } = await _supabase.auth.getSession();
-            if (session) {
-                handleAuthSuccess(session.user);
-            }
-        }
-        checkSession();
-
-        _supabase.auth.onAuthStateChange((event, session) => {
-            if (event === 'SIGNED_IN' || event === 'USER_UPDATED') {
-                if (session) handleAuthSuccess(session.user);
-            }
-        });
-
-        function handleAuthSuccess(user) {
-            document.getElementById('auth-nav').innerHTML = `
-                <span style="color: var(--text-muted); font-size: 0.8rem; margin-right: 1rem;">${user.email}</span>
-                <a href="#" class="btn btn-outline" onclick="logout()">Logout</a>
-            `;
-            hideAuth();
-        }
-
-        async function logout() {
-            await _supabase.auth.signOut();
-            window.location.reload();
-        }
-
-        function showAuth(mode) {
-            authMode = mode;
-            document.getElementById('auth-modal').style.display = 'flex';
-            document.getElementById('modal-title').textContent = mode === 'signup' ? 'Create Account' : 'Welcome Back';
-            document.getElementById('submit-btn').textContent = mode === 'signup' ? 'Create Account' : 'Login';
-            document.getElementById('toggle-link').textContent = mode === 'signup' ? 'Already have an account? Login' : "Don't have an account? Sign Up";
-        }
-
-        function hideAuth() {
-            document.getElementById('auth-modal').style.display = 'none';
-        }
-
-        function toggleAuthMode() {
-            showAuth(authMode === 'signup' ? 'login' : 'signup');
-        }
-
-        document.getElementById('auth-form').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            const btn = document.getElementById('submit-btn');
-
-            btn.textContent = 'Processing...';
-            btn.disabled = true;
-
-            try {
-                let result;
-                if (authMode === 'signup') {
-                    result = await _supabase.auth.signUp({ email, password });
-                } else {
-                    result = await _supabase.auth.signInWithPassword({ email, password });
-                }
-
-                if (result.error) throw result.error;
-
-                if (authMode === 'signup') {
-                    alert('Success! Please check your email for verification.');
-                } else {
-                    alert('Logged in! You can now use the software.');
-                }
-                hideAuth();
-            } catch (err) {
-                alert(err.message);
-            } finally {
-                btn.textContent = authMode === 'signup' ? 'Create Account' : 'Login';
-                btn.disabled = false;
-            }
-        });
-
-        async function handlePurchase(plan) {
-            alert('Stripe Integration: Redirecting to Checkout...');
-        }
-    </script>
+    <script type="module" src="/main.js"></script>
 </body>
 
 </html>
