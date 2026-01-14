@@ -24,4 +24,28 @@
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>
+    <url>
+        <loc>https://interviewassistant.co.in/cluely-alternative.html</loc>
+        <lastmod>2026-01-14</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://interviewassistant.co.in/parakeet-ai-vs-interviewassistant.html</loc>
+        <lastmod>2026-01-14</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://interviewassistant.co.in/interview-coder-alternative.html</loc>
+        <lastmod>2026-01-14</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://interviewassistant.co.in/best-ai-coding-copilot.html</loc>
+        <lastmod>2026-01-14</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
 </urlset>
