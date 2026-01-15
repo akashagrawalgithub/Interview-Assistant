@@ -48,10 +48,30 @@ function showAuth(mode) {
     document.getElementById('modal-title').textContent = mode === 'signup' ? 'Create Account' : 'Welcome Back';
     document.getElementById('submit-btn').textContent = mode === 'signup' ? 'Create Account' : 'Login';
     document.getElementById('toggle-link').textContent = mode === 'signup' ? 'Already have an account? Login' : "Don't have an account? Sign Up";
+
+    // Toggle Confirm Password field
+    const confirmPwd = document.getElementById('confirm-password');
+    if (mode === 'signup') {
+        confirmPwd.style.display = 'block';
+        confirmPwd.required = true;
+    } else {
+        confirmPwd.style.display = 'none';
+        confirmPwd.required = false;
+        confirmPwd.value = ''; // Clear value when switching to login
+    }
 }
 
 function hideAuth() {
     document.getElementById('auth-modal').style.display = 'none';
+}
+
+function showCustomAlert(message) {
+    document.getElementById('custom-alert-message').textContent = message;
+    document.getElementById('custom-alert').style.display = 'flex';
+}
+
+function closeCustomAlert() {
+    document.getElementById('custom-alert').style.display = 'none';
 }
 
 function toggleAuthMode() {
@@ -61,6 +81,7 @@ function toggleAuthMode() {
 window.showAuth = showAuth;
 window.hideAuth = hideAuth;
 window.toggleAuthMode = toggleAuthMode;
+window.closeCustomAlert = closeCustomAlert;
 
 const authForm = document.getElementById('auth-form');
 if (authForm) {
@@ -68,7 +89,13 @@ if (authForm) {
         e.preventDefault();
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirm-password').value;
         const btn = document.getElementById('submit-btn');
+
+        if (authMode === 'signup' && password !== confirmPassword) {
+            showCustomAlert('Passwords do not match!');
+            return;
+        }
 
         btn.textContent = 'Processing...';
         btn.disabled = true;
@@ -84,13 +111,13 @@ if (authForm) {
             if (result.error) throw result.error;
 
             if (authMode === 'signup') {
-                alert('Success! Please check your email for verification.');
+                showCustomAlert('Success! Please check your email for verification.');
             } else {
-                alert('Logged in! You can now use the software.');
+                showCustomAlert('Logged in! You can now use the software.');
             }
             window.hideAuth();
         } catch (err) {
-            alert(err.message);
+            showCustomAlert(err.message);
         } finally {
             btn.textContent = authMode === 'signup' ? 'Create Account' : 'Login';
             btn.disabled = false;
@@ -99,7 +126,7 @@ if (authForm) {
 }
 
 window.handlePurchase = async function (plan) {
-    alert('Stripe Integration: Redirecting to Checkout...');
+    showCustomAlert('Stripe Integration: Redirecting to Checkout...');
 }
 
 // Mobile Menu Toggle

@@ -396,9 +396,19 @@
             <form id="auth-form">
                 <input type="email" id="email" placeholder="Email Address" required>
                 <input type="password" id="password" placeholder="Password" required>
+                <input type="password" id="confirm-password" placeholder="Confirm Password" style="display: none;">
                 <button type="submit" id="submit-btn" class="btn btn-primary">Sign Up</button>
                 <p id="toggle-link" onclick="toggleAuthMode()">Already have an account? Login</p>
             </form>
+        </div>
+    </div>
+
+    <!-- Custom Alert Modal -->
+    <div id="custom-alert" class="custom-alert-modal">
+        <div class="custom-alert-content">
+            <span class="custom-alert-close" onclick="closeCustomAlert()">&times;</span>
+            <p id="custom-alert-message" class="custom-alert-message"></p>
+            <button class="btn btn-primary" onclick="closeCustomAlert()">Close</button>
         </div>
     </div>
 
